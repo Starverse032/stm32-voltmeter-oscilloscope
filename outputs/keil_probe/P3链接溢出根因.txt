@@ -1,0 +1,20 @@
+P3 链接溢出根因诊断（主 agent，fromelf -z 实测）
+时间: 2026-11-09 15:25:08 +0800
+
+现象: UV4 构建报 L6406E/L6407E，aggregate size 0x1540c，112 errors，Target not created。
+初步猜测（错误方向）: 链接了全部 23 个标准库 .c。精简到 7 个后仍失败（112 errors）。
+
+实际根因: 按 Objects/Project.lnp 的 21 个 .o 用 fromelf -z 逐个统计:
+  protocol_codec.o      code=112640 B   <-- 异常
+  其余 20 个 .o 合计    code≈14472 B, ro≈1786 B
+  总计 code+ro = 128898 B (0x1F782) >> IROM 0x10000 (65536 B)
+原因: Protocol_Crc16 运行时直接展开 CRC_STEP(8 层 CRC_BIT1 嵌套)，
+      CRC_BIT1(c) 三元表达式使 (c) 每层出现 3 次 → 3^8 份表达式被编译成约 110 KB 机器码。
+      编译期 #if 用同一宏没问题（预处理期求值，不生成代码）：protocol_selftest.o 仅 12 B code + 30 B RO。
+
+修复: 运行时改为循环调用同一个 CRC_BIT1 单步宏 8 次（语义由同一宏保证等价）。
+验证: armcc --cpu Cortex-M3 --c99 -O2 ... -c crc_runtime_fix.c → 退出码 0；
+      fromelf -z 显示修复后该 .o 的 code = 58 B（原 112640 B）。
+建议文件: outputs/keil_probe/crc_runtime_fix.c；docs/protocol.md 第 5 节参考实现已同步修正。
+
+结论: 精简库是合理优化但不是根因；修 CRC 运行时实现后应能生成 HEX，最终以 UV4 -r 重建日志为准。

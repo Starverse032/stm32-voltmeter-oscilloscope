@@ -1,0 +1,12 @@
+主 agent 独立 GUI 真实桌面复核
+时间: 2026-11-09T15:05:10
+解释器: C:\Users\29319\Documents\ChatGPT\电压表和示波器\.venv\Scripts\python.exe
+
+Qt platformName: windows
+主屏尺寸: PySide6.QtCore.QSize(2560, 1440)
+是否 offscreen: False
+start_simulation() 调用成功
+app.exec() 退出码: 0
+截图 主agent复核_电压表.png: save=True, 大小=51917 B
+截图 主agent复核_示波器.png: save=True, 大小=79413 B
+窗口 close() 已调用，无异常

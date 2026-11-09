@@ -1,0 +1,87 @@
+ [OK  ] outputs/启动仪器.bat  (1231 B)
+  [OK  ] outputs/运行验证.bat  (527 B)
+  [OK  ] outputs/协议交叉核对.py  (13204 B)
+  [OK  ] outputs/协议核对结果.txt  (3006 B)
+  [OK  ] outputs/验证报告.md  (38188 B)
+  
+  == 必需文件（glob） ==
+  [OK  ] firmware/Hardware/*.c -> 5 个: firmware/Hardware/ADC_Scope.c, firmware/Hardware/OLED.c, firmware/Hardware/OLED_Voltmeter.c, firmware/Hardware/SelfTest_PWM.c, firmware/Hardware/Serial_Protocol.c
+  [OK  ] firmware/Hardware/*.h -> 6 个: firmware/Hardware/ADC_Scope.h, firmware/Hardware/OLED.h, firmware/Hardware/OLED_Font.h, firmware/Hardware/OLED_Voltmeter.h, firmware/Hardware/SelfTest_PWM.h, firmware/Hardware/Serial_Protocol.h
+  [OK  ] firmware/Start/startup_stm32f10x_md.s -> 1 个: firmware/Start/startup_stm32f10x_md.s
+  [OK  ] firmware/Library/stm32f10x_adc.c -> 1 个: firmware/Library/stm32f10x_adc.c
+  [OK  ] firmware/Tests/*.c -> 1 个: firmware/Tests/protocol_selftest.c
+  [OK  ] firmware/Objects/build.log -> 1 个: firmware/Objects/build.log
+  [OK  ] desktop/tests/*.py -> 6 个: desktop/tests/gui_smoke.py, desktop/tests/run_tests.py, desktop/tests/test_processing.py, desktop/tests/test_protocol.py, desktop/tests/test_simulator.py, desktop/tests/test_ui_regressions.py
+  [OK  ] desktop/screenshots/*.png -> 6 个: desktop/screenshots/oscilloscope_100k.png, desktop/screenshots/oscilloscope_100k_offscreen.png, desktop/screenshots/oscilloscope_sine.png, desktop/screenshots/oscilloscope_sine_offscreen.png, desktop/screenshots/voltmeter.png, desktop/screenshots/voltmeter_offscreen.png
+  [OK  ] outputs/screenshots/*.png -> 5 个: outputs/screenshots/oscilloscope_100k.png, outputs/screenshots/oscilloscope_sine.png, outputs/screenshots/voltmeter.png, outputs/screenshots/主agent复核_电压表.png, outputs/screenshots/主agent复核_示波器.png
+  [OK  ] firmware/Objects/*.hex -> 1 个: firmware/Objects/Project.hex
+  
+  == Keil 工程配置 ==
+  [OK  ] Device STM32F103C8
+  [OK  ] PackID 2.2.0
+  [OK  ] CreateHexFile=1
+  [OK  ] USE_STDPERIPH_DRIVER
+  [OK  ] md 启动文件
+  [OK  ] IRAM 0x5000 / IROM 0x10000
+  [OK  ] IncludePath 含 Common/Hardware
+  [OK  ] 协议自检文件在工程里
+  
+  == 构建日志与产物判定（只读，不代替实际构建） ==
+    Error: 1 次
+    Warning: 1 次
+    Program Size: 1 次
+    Code: 2 次
+    RO-data: 1 次
+    RW-data: 1 次
+    ZI-data: 1 次
+    hex: 1 次
+  [OK  ] 日志含 '0 Error(s)'（构建无错误）
+  [OK  ] 生成 HEX: Project.hex
+    --- 日志末尾 12 行 ---
+    compiling OLED_Voltmeter.c...
+    compiling Serial_Protocol.c...
+    compiling stm32f10x_tim.c...
+    compiling SelfTest_PWM.c...
+    compiling protocol_codec.c...
+    compiling TimeBase.c...
+    compiling protocol_selftest.c...
+    linking...
+    Program Size: Code=14258 RO-data=1790 RW-data=112 ZI-data=14504  
+    FromELF: creating hex file...
+    ".\Objects\Project.axf" - 0 Error(s), 0 Warning(s).
+    Build Time Elapsed:  00:00:03
+    说明: 本脚本只读取既有日志与产物，不执行 Keil 构建；『构建成功』以 UV4 原始日志 + 退出码为准，不得由文件存在推断。
+  
+  == 交付包排除项检查 ==
+    .venv: 存在（打包脚本会排除）
+    .git: 存在（打包脚本会排除）
+    *.mp4 视频: 0 个 OK
+  
+  ============================================================
+  结论: 必需交付物齐全
+
+### 构建 / 截图 / 文档 只读快照
+  [OK  ] firmware/Project.uvprojx  (25299 B)
+  [OK  ] firmware/Objects/build.log  (907 B)
+  [OK  ] firmware/Objects/Project.hex  (45501 B)
+  [OK  ] firmware/Tests/protocol_selftest.c  (9981 B)
+  [OK  ] desktop/main.py  (1347 B)
+  [OK  ] desktop/main_window.py  (48392 B)
+  [OK  ] docs/protocol.md  (17173 B)
+  [OK  ] docs/接线与硬件.md  (30677 B)
+  [OK  ] docs/上板验收.md  (24852 B)
+  [OK  ] docs/审查记录.md  (50564 B)
+  [OK  ] outputs/验证报告.md  (38188 B)
+  [OK  ] outputs/协议核对结果.txt  (3006 B)
+  [OK  ] outputs/协议状态机复核.txt  (1356 B)
+  desktop/screenshots: 6 张 PNG: oscilloscope_100k.png, oscilloscope_100k_offscreen.png, oscilloscope_sine.png, oscilloscope_sine_offscreen.png, voltmeter.png, voltmeter_offscreen.png
+  outputs/screenshots: 5 张 PNG: oscilloscope_100k.png, oscilloscope_sine.png, voltmeter.png, 主agent复核_电压表.png, 主agent复核_示波器.png
+
+======================================================================
+汇总: 协议跨实现核对=0 | 协议状态机整合复核=0 | 电脑端单元测试=0 | 交付物自检=0
+退出码含义: 0=全部通过 / 1=有失败 / 2=有未核对项 / 99=执行异常
+最终退出码: 0
+
+
+[完成] 最终验证退出码 0，详细结果见 outputs\验证日志.txt
+Press any key to continue . . . 

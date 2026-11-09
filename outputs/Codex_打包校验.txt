@@ -1,0 +1,6 @@
+ZIP CRC and byte-for-byte comparison: PASS (162 files + manifest)
+Excluded .venv/.git/work/cache: PASS
+HEX record checksums, 64KB Flash address range, vectors: PASS (16160 data bytes)
+SP=0x20003918; reset=0x08000189
+ZIP SHA256=5c069cf341626435e99f9ac28fd22e4a58a4cc2e0fd51bb5b13fc8dd7311ea3b
+No hardware flashing or measurements performed.

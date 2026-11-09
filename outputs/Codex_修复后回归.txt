@@ -1,0 +1,54 @@
+[INFO] 刷新串口：发现 0 个
+[INFO] 窗口初始化完成；未接设备，当前为'等待设备'状态
+[INFO] 窗口关闭：串口线程停止=True，串口已释放
+test_delayed_disconnect_does_not_stop_simulation (test_ui_regressions.TestWindowRegressions.test_delayed_disconnect_does_not_stop_simulation) ... ok
+[INFO] 刷新串口：发现 0 个
+[INFO] 窗口初始化完成；未接设备，当前为'等待设备'状态
+test_delayed_serial_frame_cannot_contaminate_simulation (test_ui_regressions.TestWindowRegressions.test_delayed_serial_frame_cannot_contaminate_simulation) ... ok
+[INFO] 窗口关闭：串口线程停止=True，串口已释放
+[INFO] 刷新串口：发现 0 个
+[INFO] 窗口初始化完成；未接设备，当前为'等待设备'状态
+[ERROR] 断线：test
+[INFO] CSV 已导出：C:\Users\29319\Documents\ChatGPT\电压表和示波器\work\tmp140s96pz\frame.csv（16 点，帧序号 1）
+[INFO] 窗口关闭：串口线程停止=True，串口已释放
+test_disconnected_sim_csv_retains_sim_provenance (test_ui_regressions.TestWindowRegressions.test_disconnected_sim_csv_retains_sim_provenance) ... ok
+[INFO] 刷新串口：发现 0 个
+[INFO] 窗口初始化完成；未接设备，当前为'等待设备'状态
+[ERROR] 采样帧数据损坏：采样率不在设备支持范围内（SEQ=0x01，整帧丢弃）
+[ERROR] 采样帧数据损坏：参考电压越界（SEQ=0x01，整帧丢弃）
+[INFO] 窗口关闭：串口线程停止=True，串口已释放
+test_invalid_sample_metadata_is_rejected_before_drawing (test_ui_regressions.TestWindowRegressions.test_invalid_sample_metadata_is_rejected_before_drawing) ... ok
+[INFO] 刷新串口：发现 0 个
+[INFO] 窗口初始化完成；未接设备，当前为'等待设备'状态
+[INFO] 单次采集：等待一帧后自动冻结
+[INFO] 收到响应：ack=0x03 status=0x00 rate=10000 vref=3300
+[INFO] 窗口关闭：串口线程停止=True，串口已释放
+test_real_single_ignores_inflight_frame_before_ack (test_ui_regressions.TestWindowRegressions.test_real_single_ignores_inflight_frame_before_ack) ... ok
+[INFO] 刷新串口：发现 0 个
+[INFO] 窗口初始化完成；未接设备，当前为'等待设备'状态
+[INFO] 触发方式：上升沿触发
+[INFO] 单次采集：等待一帧后自动冻结
+[INFO] 窗口关闭：串口线程停止=True，串口已释放
+test_single_waits_for_a_triggered_frame (test_ui_regressions.TestWindowRegressions.test_single_waits_for_a_triggered_frame) ... ok
+[INFO] 刷新串口：发现 0 个
+[INFO] 窗口初始化完成；未接设备，当前为'等待设备'状态
+[INFO] 请求修改参考电压 → 3200 mV（SEQ=0x00）
+[ERROR] 参考电压切换超时，保持旧状态
+[INFO] 窗口关闭：串口线程停止=True，串口已释放
+test_switch_timeout_rolls_back_reference_editor (test_ui_regressions.TestWindowRegressions.test_switch_timeout_rolls_back_reference_editor) ... ok
+[INFO] 刷新串口：发现 0 个
+[INFO] 窗口初始化完成；未接设备，当前为'等待设备'状态
+[INFO] 请求切换采样率 → 100000 S/s（SEQ=0x00），显示'切换中'
+[INFO] 忽略过期或不匹配的参数响应 SEQ=0x01
+[INFO] 窗口关闭：串口线程停止=True，串口已释放
+test_unrelated_rate_ack_does_not_cancel_pending_request (test_ui_regressions.TestWindowRegressions.test_unrelated_rate_ack_does_not_cancel_pending_request) ... ok
+[INFO] 刷新串口：发现 0 个
+[INFO] 窗口初始化完成；未接设备，当前为'等待设备'状态
+[INFO] 触发方式：上升沿触发
+[INFO] 窗口关闭：串口线程停止=True，串口已释放
+test_waiting_trigger_keeps_curve_stats_and_export_on_same_frame (test_ui_regressions.TestWindowRegressions.test_waiting_trigger_keeps_curve_stats_and_export_on_same_frame) ... ok
+
+----------------------------------------------------------------------
+Ran 9 tests in 0.252s
+
+OK

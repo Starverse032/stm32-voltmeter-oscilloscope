@@ -1,0 +1,188 @@
+==================== GUI 真实验证开始 ====================
+[INFO] 刷新串口：发现 0 个
+[INFO] 窗口初始化完成；未接设备，当前为'等待设备'状态
+
+---- 步骤：记录运行环境与初始状态 ----
+运行时间: 2026-11-09 16:35:06.426689
+Python: 3.13.14 (main, Jun 11 2026, 04:04:46) [MSC v.1944 64 bit (AMD64)]
+PySide6: 6.12.0
+Qt 平台: windows | offscreen: False
+说明：使用本机真实桌面会话
+截图目录: C:\Users\29319\Documents\ChatGPT\电压表和示波器\desktop\screenshots
+日志路径: C:\Users\29319\Documents\ChatGPT\电压表和示波器\desktop\tests\GUI_OUTPUT.txt
+  [PASS] 初始状态为'等待设备'（未收到任何帧）  |  ● 等待设备（未收到任何帧）
+  [PASS] 初始没有显示任何测量数据
+
+---- 步骤：切换到示波器视图 ----
+  [PASS] 已切换到示波器视图
+
+---- 步骤：启动模拟模式 ----
+[INFO] 已进入模拟模式（模拟数据，非真实测量）
+  [PASS] 模拟模式显著标注'模拟数据'  |  ● 模拟数据（非真实测量）
+  [PASS] 模拟模式禁用真实设备连接按钮
+
+---- 步骤：选择正弦场景 ----
+  [PASS] 已选择正弦场景
+  [PASS] 模拟模式已收到并显示至少一帧  |  帧序号=1
+
+---- 步骤：截图：示波器（正弦） ----
+  [PASS] 截图 oscilloscope_sine.png  |  大小 75236 字节
+
+---- 步骤：切换方波场景 ----
+[INFO] 模拟场景切换为：方波
+  [PASS] 已切换到方波场景
+
+---- 步骤：切换直流场景 ----
+[INFO] 模拟场景切换为：直流
+  [PASS] 已切换到直流场景
+
+---- 步骤：等待直流帧后验证直流无触发 ----
+  [PASS] 直流场景已产出并显示新帧
+  [PASS] 直流场景峰峰值≈0  |  vpp=0.000000
+  [PASS] 直流场景上升沿触发返回 None（未触发）
+
+---- 步骤：回到正弦场景 ----
+[INFO] 模拟场景切换为：正弦波
+  [PASS] 已回到正弦场景
+
+---- 步骤：切换采样率到 100000 S/s ----
+[INFO] 请求切换采样率 → 100000 S/s（SEQ=0x00），显示'切换中'
+  [PASS] 切换期间界面显示'切换中'  |  切换中…（等待设备确认）
+[INFO] 采样率切换已确认：采样率 已生效
+
+---- 步骤：检查采样率经响应确认后才生效 ----
+当前生效采样率: 100000 | 状态: 采样率 100000 S/s（已生效）
+  [PASS] 采样率切换经 SEQ 匹配+status OK+回读正确后才生效
+  [PASS] 确认后模拟源采样率同步为 100000
+
+---- 步骤：放大 / 缩小 / 复位视图 ----
+[INFO] 复位视图
+  [PASS] 放大 / 缩小 / 复位视图无异常
+
+---- 步骤：EVENT 帧显示到状态栏 ----
+[ERROR] 设备事件 [0x01 协议错误]：crc error
+EVENT 帧后状态栏消息: 设备事件 [0x01 协议错误]：crc error
+  [PASS] EVENT 帧显示到状态栏，未被静默吞掉  |  设备事件 [0x01 协议错误]：crc error
+
+---- 步骤：暂停（保持）并记录帧序号 ----
+[INFO] 暂停（保持当前帧，后台新帧不覆盖）
+暂停时帧序号: 27 | hold 模式: hold
+  [PASS] 暂停后进入保持模式
+
+---- 步骤：检查暂停期间新帧不覆盖显示帧 ----
+暂停期间（>2 个模拟帧周期后）帧序号: 27
+  [PASS] 暂停期间后台新帧未覆盖当前显示帧  |  暂停时=27 现在=27
+
+---- 步骤：单次采集 ----
+[INFO] 单次采集：等待一帧后自动冻结
+  [PASS] 单次采集已武装（等待一帧后自动冻结）
+
+---- 步骤：检查单次冻结后新帧不覆盖 ----
+单次采集后显示帧序号: 36 | hold 模式: single
+  [PASS] 单次采集收到了一帧
+
+---- 步骤：导出 CSV 到 desktop/tests/out.csv ----
+[INFO] CSV 已导出：C:\Users\29319\Documents\ChatGPT\电压表和示波器\desktop\tests\out.csv（1024 点，帧序号 36）
+  [PASS] CSV 导出成功  |  C:\Users\29319\Documents\ChatGPT\电压表和示波器\desktop\tests\out.csv
+单次冻结复查（又过 500ms）帧序号: 36
+  [PASS] 单次冻结后后台新帧未覆盖显示帧  |  冻结时=36 现在=36
+
+---- 步骤：检查 CSV 文件头与数据列 ----
+CSV 头部:
+# 帧间不连续，时间轴为帧内相对时间（每帧从 0 起）
+# 说明：本文件只含一帧；帧间空隙未隐藏成连续采样
+# sample_rate_hz,100000
+# vref_mv,3300
+# frame_seq,36
+# point_count,1024
+# data_source,模拟数据（非真实测量）
+# voltage_formula,code/4095.0*(vref_mv/1000.0)
+# resolution_note,1LSB≈0.8059mV@3.3V;显示3位小数不冒充精度
+frame_seq,index,time_s,adc_code,voltage_v
+36,0,0.000000000,990,0.797802
+36,1,0.000010000,946,0.762344
+
+CSV 数据行数: 1024
+  [PASS] CSV 文件头注明'帧间不连续/帧内相对时间'
+  [PASS] CSV 保存采样率/参考电压/帧序号/换算公式
+  [PASS] CSV 含帧内时间/原始码/换算电压列
+  [PASS] CSV 含至少一帧数据点
+
+---- 步骤：截图：示波器（100 kS/s） ----
+  [PASS] 截图 oscilloscope_100k.png  |  大小 75479 字节
+
+---- 步骤：切回电压表视图 ----
+  [PASS] 已切回电压表视图
+  [PASS] 电压表显示大数字与统计量
+
+---- 步骤：截图：电压表 ----
+  [PASS] 截图 voltmeter.png  |  大小 50518 字节
+
+---- 步骤：选择断线场景 ----
+[INFO] 模拟场景切换为：断线（不产帧）
+  [PASS] 已选择断线场景
+[ERROR] 断线：模拟场景：断线（不产帧）
+
+---- 步骤：检查断线冻结与历史数据标注 ----
+断线后状态: ● 已断开（最后一帧为历史数据，不再刷新） | mode: disconnected | 历史标注: True
+  [PASS] 断线后状态栏显示'已断开'
+  [PASS] 断线后冻结最后一帧并标注历史数据
+  [PASS] 断线后不再刷新（模拟定时器已停止）
+
+---- 步骤：关闭窗口并检查串口线程干净退出 ----
+[INFO] 窗口关闭：串口线程停止=True，串口已释放
+窗口关闭后串口线程仍在运行: False
+  [PASS] 关闭窗口后串口线程干净退出
+  [PASS] closeEvent 已调用 stop_and_wait 释放串口
+
+---- 步骤：汇总并结束 ----
+  [PASS] 日志中无 'QThread: Destroyed while thread is still running' 残留报错
+
+==================== 汇总 ====================
+检查项: 40   通过: 40   失败: 0
+  PASS  初始状态为'等待设备'（未收到任何帧）
+  PASS  初始没有显示任何测量数据
+  PASS  已切换到示波器视图
+  PASS  模拟模式显著标注'模拟数据'
+  PASS  模拟模式禁用真实设备连接按钮
+  PASS  已选择正弦场景
+  PASS  模拟模式已收到并显示至少一帧
+  PASS  截图 oscilloscope_sine.png
+  PASS  已切换到方波场景
+  PASS  已切换到直流场景
+  PASS  直流场景已产出并显示新帧
+  PASS  直流场景峰峰值≈0
+  PASS  直流场景上升沿触发返回 None（未触发）
+  PASS  已回到正弦场景
+  PASS  切换期间界面显示'切换中'
+  PASS  采样率切换经 SEQ 匹配+status OK+回读正确后才生效
+  PASS  确认后模拟源采样率同步为 100000
+  PASS  放大 / 缩小 / 复位视图无异常
+  PASS  EVENT 帧显示到状态栏，未被静默吞掉
+  PASS  暂停后进入保持模式
+  PASS  暂停期间后台新帧未覆盖当前显示帧
+  PASS  单次采集已武装（等待一帧后自动冻结）
+  PASS  单次采集收到了一帧
+  PASS  CSV 导出成功
+  PASS  单次冻结后后台新帧未覆盖显示帧
+  PASS  CSV 文件头注明'帧间不连续/帧内相对时间'
+  PASS  CSV 保存采样率/参考电压/帧序号/换算公式
+  PASS  CSV 含帧内时间/原始码/换算电压列
+  PASS  CSV 含至少一帧数据点
+  PASS  截图 oscilloscope_100k.png
+  PASS  已切回电压表视图
+  PASS  电压表显示大数字与统计量
+  PASS  截图 voltmeter.png
+  PASS  已选择断线场景
+  PASS  断线后状态栏显示'已断开'
+  PASS  断线后冻结最后一帧并标注历史数据
+  PASS  断线后不再刷新（模拟定时器已停止）
+  PASS  关闭窗口后串口线程干净退出
+  PASS  closeEvent 已调用 stop_and_wait 释放串口
+  PASS  日志中无 'QThread: Destroyed while thread is still running' 残留报错
+GUI 平台: windows（offscreen=False）
+日志: C:\Users\29319\Documents\ChatGPT\电压表和示波器\desktop\tests\GUI_OUTPUT.txt
+截图: C:\Users\29319\Documents\ChatGPT\电压表和示波器\desktop\screenshots
+CSV: C:\Users\29319\Documents\ChatGPT\电压表和示波器\desktop\tests\out.csv
+==============================================
+app.exec() 返回码: 0

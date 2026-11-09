@@ -1,0 +1,25 @@
+协议状态机整合复核（输入来自 docs/protocol.md 的 golden 字节串）
+
+[OK] 从文档读取 A_SET_RATE: 17 字节
+[OK] 从文档读取 B_SAMPLE_4PT: 30 字节
+[OK] 从文档读取 C_ACK: 26 字节
+[PASS] 逐字节分片能重组出完整采样帧 — 解出 1 帧
+[PASS] 任意两字节分片能重组
+[PASS] 一次 read 含 3 帧全部解出且类型正确 — ['0x20', '0x10', '0x21']
+[PASS] 前置随机噪声后能重同步
+[PASS] 噪声残骸后能找回后续合法帧 — 解出 1 帧
+[PASS] CRC 错帧被丢弃且后续帧可恢复 — 解出 1 帧
+[PASS] LEN=65535 非法长度后能恢复后续帧
+[PASS] LEN=3 与 SAMPLE 不自洽，不当成有效采样帧
+[PASS] 截断帧 1s 超时被丢弃并上报 — timeouts=1, errors=1
+[PASS] 截断超时后接一个合法帧能恢复
+[PASS] 接收缓冲超过 8192 会清空重同步 — buffer_overflows=1
+[PASS] 命令与响应 SEQ 回显一致 — seq=[7, 7]
+[PASS] 响应回读实际采样率 100000 / status OK / ack_cmd=SET_RATE
+[PASS] CRC 标准向量 0x29B1
+[PASS] 编码器 A_SET_RATE == 文档 golden 常量 — 逐字节一致
+[PASS] 编码器 B_SAMPLE_4PT == 文档 golden 常量 — 逐字节一致
+[PASS] 编码器 C_ACK == 文档 golden 常量 — 逐字节一致
+
+============================================================
+结论: 全部通过

@@ -1,0 +1,28 @@
+# Local environments, credentials, and collaboration working files
+/.venv/
+/work/
+/.agents/
+/.codex/
+.env
+.env.*
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.DS_Store
+Thumbs.db
+
+# Keil local UI/debug settings and generated intermediate files
+*.uvoptx
+*.uvguix.*
+/firmware/DebugConfig/
+/firmware/Listings/
+/firmware/Objects/*
+!/firmware/Objects/Project.hex
+!/firmware/Objects/build.log
+
+# Local delivery bundles and development-only handoff material
+/outputs/*.zip
+/outputs/*.diff
+/outputs/给WorkBuddy的制作任务.md
+/outputs/自动验收进度.md
+/desktop/tests/out.csv

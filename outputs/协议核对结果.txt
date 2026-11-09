@@ -1,0 +1,55 @@
+协议跨实现核对报告
+项目根目录: C:\Users\29319\Documents\ChatGPT\电压表和示波器
+核对依据: docs/protocol.md v1（第 5/7/8 节）
+
+[PASS] CRC 标准向量 "123456789" — 实得 0x29B1，期望 0x29B1
+[PASS] 长度常量 — LEN_MAX=2060, RX_BUF_MAX=8192
+
+[PASS] 文档含 golden 串 A_SET_RATE — A55AC33C01200500070004A08601007882
+[PASS] 文档含 golden 串 B_SAMPLE_4PT — A55AC33C011012002A00102700000400E40C000000000008FF0FD204A47E
+[PASS] 文档含 golden 串 C_ACK — A55AC33C01210E0007000400A0860100E40C0000000000003AE7
+
+[PASS] A_SET_RATE VER — 1
+[PASS] A_SET_RATE FLAGS — 0
+[PASS] A_SET_RATE CRC 自洽 — 帧内 0x8278 / 重算 0x8278
+[PASS] A_SET_RATE CRC 期望值 — 0x8278 vs 0x8278
+[PASS] A TYPE=COMMAND — 0x20
+[PASS] A LEN/SEQ — LEN=5, SEQ=7
+[PASS] A 命令字段 — cmd=0x04, rate=100000 Hz
+[PASS] B_SAMPLE_4PT VER — 1
+[PASS] B_SAMPLE_4PT FLAGS — 0
+[PASS] B_SAMPLE_4PT CRC 自洽 — 帧内 0x7EA4 / 重算 0x7EA4
+[PASS] B_SAMPLE_4PT CRC 期望值 — 0x7EA4 vs 0x7EA4
+[PASS] B TYPE=SAMPLE — 0x10
+[PASS] B LEN/SEQ — LEN=18, SEQ=0x2A
+[PASS] B 采样元信息 — rate=10000, n=4, vref_mv=3300, reserved=0
+[PASS] B 原始 ADC 码 — [0, 2048, 4095, 1234]
+[PASS] B LEN 与点数自洽 — 18 == 10+2*4
+[PASS] B 电压换算 — [0.0, 1.6504, 3.3, 0.9944]
+[PASS] C_ACK VER — 1
+[PASS] C_ACK FLAGS — 0
+[PASS] C_ACK CRC 自洽 — 帧内 0xE73A / 重算 0xE73A
+[PASS] C_ACK CRC 期望值 — 0xE73A vs 0xE73A
+[PASS] C TYPE=RESPONSE — 0x21
+[PASS] C LEN/SEQ — LEN=14, SEQ=7
+[PASS] C 响应字段 — ack=0x04, status=0, rate=100000, vref=3300, run=0, flags=0, frames_sent=0
+
+[PASS] C golden 数组长度 — 30 vs 30
+[PASS] C golden 数组逐字节 == 文档样例 B — 完全一致
+[PASS] 解析 C 侧 golden 数据 — CRC=0x7EA4, n=4
+[PASS] C 断言含期望 CRC A_SET_RATE 0x8278 — 出现 4 次
+[PASS] C 断言含期望 CRC B_SAMPLE_4PT 0x7EA4 — 出现 5 次
+[PASS] C 断言含期望 CRC C_ACK 0xE73A — 出现 4 次
+[PASS] C 断言含标准向量 0x29B1
+[PASS] C 使用 #if 常量表达式 + #error 断言
+[PASS] C 断言为分段独立写法（无宏链，避免 ARMCC 预处理期溢出） — 宏链 0 处，字面量起始的独立断言 64 条
+       提示: 编译期断言必须由 ARMCC 实际编译通过才算证据，见 outputs/keil_probe/CRC编译期断言探测.txt 与固件构建日志。
+
+[PASS] 电脑端 CRC 实现含标准多项式/初值
+[PASS] 电脑端含 MAGIC 定义
+
+============================================================
+结论: 三方证据齐全且全部通过
+说明: 本机没有可在 PC 上执行的 x86 C 编译器，因此 C 运行时函数不能编译成 PC 程序执行；
+      跨实现证据由「ARMCC 编译期 #if 常量断言（见固件构建日志）」+「本脚本解析 C 源码中的人工 golden 字节」构成。
+      「C 编码→Python 解码 / Python 编码→C 解码」的运行级双向核对列为待补项。

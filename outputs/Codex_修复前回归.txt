@@ -1,0 +1,175 @@
+[INFO] 刷新串口：发现 0 个
+[INFO] 窗口初始化完成；未接设备，当前为'等待设备'状态
+[ERROR] 断线：old worker
+[INFO] 窗口关闭：串口线程停止=True，串口已释放
+test_delayed_disconnect_does_not_stop_simulation (test_ui_regressions.TestWindowRegressions.test_delayed_disconnect_does_not_stop_simulation) ... FAIL
+[INFO] 刷新串口：发现 0 个
+[INFO] 窗口初始化完成；未接设备，当前为'等待设备'状态
+test_delayed_serial_frame_cannot_contaminate_simulation (test_ui_regressions.TestWindowRegressions.test_delayed_serial_frame_cannot_contaminate_simulation) ... FAIL
+[INFO] 窗口关闭：串口线程停止=True，串口已释放
+[INFO] 刷新串口：发现 0 个
+[INFO] 窗口初始化完成；未接设备，当前为'等待设备'状态
+[ERROR] 断线：test
+[ERROR] CSV 导出失败：[Errno 13] Permission denied: 'C:\\Users\\29319\\AppData\\Local\\Packages\\sandbox.{5f70c343-4dee-4541-8f7f-19058703103c}\\AC\\Temp\\tmp2uytk89z\\frame.csv'
+test_disconnected_sim_csv_retains_sim_provenance (test_ui_regressions.TestWindowRegressions.test_disconnected_sim_csv_retains_sim_provenance) ... ERROR
+[INFO] 窗口关闭：串口线程停止=True，串口已释放
+[INFO] 刷新串口：发现 0 个
+[INFO] 窗口初始化完成；未接设备，当前为'等待设备'状态
+test_invalid_sample_metadata_is_rejected_before_drawing (test_ui_regressions.TestWindowRegressions.test_invalid_sample_metadata_is_rejected_before_drawing) ... FAIL
+[INFO] 窗口关闭：串口线程停止=True，串口已释放
+[INFO] 刷新串口：发现 0 个
+[INFO] 窗口初始化完成；未接设备，当前为'等待设备'状态
+[INFO] 单次采集：等待一帧后自动冻结
+test_real_single_ignores_inflight_frame_before_ack (test_ui_regressions.TestWindowRegressions.test_real_single_ignores_inflight_frame_before_ack) ... FAIL
+[INFO] 窗口关闭：串口线程停止=True，串口已释放
+[INFO] 刷新串口：发现 0 个
+[INFO] 窗口初始化完成；未接设备，当前为'等待设备'状态
+[INFO] 触发方式：上升沿触发
+[INFO] 单次采集：等待一帧后自动冻结
+test_single_waits_for_a_triggered_frame (test_ui_regressions.TestWindowRegressions.test_single_waits_for_a_triggered_frame) ... FAIL
+[INFO] 窗口关闭：串口线程停止=True，串口已释放
+[INFO] 刷新串口：发现 0 个
+[INFO] 窗口初始化完成；未接设备，当前为'等待设备'状态
+[INFO] 请求修改参考电压 → 3200 mV（SEQ=0x00）
+[ERROR] 参考电压切换超时，保持旧状态
+test_switch_timeout_rolls_back_reference_editor (test_ui_regressions.TestWindowRegressions.test_switch_timeout_rolls_back_reference_editor) ... FAIL
+[INFO] 窗口关闭：串口线程停止=True，串口已释放
+[INFO] 刷新串口：发现 0 个
+[INFO] 窗口初始化完成；未接设备，当前为'等待设备'状态
+[INFO] 请求切换采样率 → 100000 S/s（SEQ=0x00），显示'切换中'
+[ERROR] 采样率切换失败：响应 SEQ 不匹配（0x01 != 0x00），保持旧状态
+test_unrelated_rate_ack_does_not_cancel_pending_request (test_ui_regressions.TestWindowRegressions.test_unrelated_rate_ack_does_not_cancel_pending_request) ... FAIL
+[INFO] 窗口关闭：串口线程停止=True，串口已释放
+[INFO] 刷新串口：发现 0 个
+[INFO] 窗口初始化完成；未接设备，当前为'等待设备'状态
+[INFO] 触发方式：上升沿触发
+[INFO] 窗口关闭：串口线程停止=True，串口已释放
+test_waiting_trigger_keeps_curve_stats_and_export_on_same_frame (test_ui_regressions.TestWindowRegressions.test_waiting_trigger_keeps_curve_stats_and_export_on_same_frame) ... FAIL
+
+======================================================================
+ERROR: test_disconnected_sim_csv_retains_sim_provenance (test_ui_regressions.TestWindowRegressions.test_disconnected_sim_csv_retains_sim_provenance)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\29319\Documents\ChatGPT\电压表和示波器\desktop\tests\test_ui_regressions.py", line 54, in test_disconnected_sim_csv_retains_sim_provenance
+    self.assertTrue(self.w.export_csv(str(path))[0])
+    ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: False is not true
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\29319\.workbuddy\binaries\python\versions\3.13.12\Lib\shutil.py", line 631, in _rmtree_unsafe
+    os.rmdir(path)
+    ~~~~~~~~^^^^^^
+PermissionError: [WinError 5] 拒绝访问。: 'C:\\Users\\29319\\AppData\\Local\\Packages\\sandbox.{5f70c343-4dee-4541-8f7f-19058703103c}\\AC\\Temp\\tmp2uytk89z'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\29319\Documents\ChatGPT\电压表和示波器\desktop\tests\test_ui_regressions.py", line 52, in test_disconnected_sim_csv_retains_sim_provenance
+    with tempfile.TemporaryDirectory() as tmp:
+         ~~~~~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "C:\Users\29319\.workbuddy\binaries\python\versions\3.13.12\Lib\tempfile.py", line 951, in __exit__
+    self.cleanup()
+    ~~~~~~~~~~~~^^
+  File "C:\Users\29319\.workbuddy\binaries\python\versions\3.13.12\Lib\tempfile.py", line 955, in cleanup
+    self._rmtree(self.name, ignore_errors=self._ignore_cleanup_errors)
+    ~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\29319\.workbuddy\binaries\python\versions\3.13.12\Lib\tempfile.py", line 935, in _rmtree
+    _shutil.rmtree(name, onexc=onexc)
+    ~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\29319\.workbuddy\binaries\python\versions\3.13.12\Lib\shutil.py", line 790, in rmtree
+    return _rmtree_unsafe(path, onexc)
+  File "C:\Users\29319\.workbuddy\binaries\python\versions\3.13.12\Lib\shutil.py", line 635, in _rmtree_unsafe
+    onexc(os.rmdir, path, err)
+    ~~~~~^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\29319\.workbuddy\binaries\python\versions\3.13.12\Lib\tempfile.py", line 907, in onexc
+    _resetperms(path)
+    ~~~~~~~~~~~^^^^^^
+  File "C:\Users\29319\.workbuddy\binaries\python\versions\3.13.12\Lib\tempfile.py", line 283, in _resetperms
+    _dont_follow_symlinks(_os.chmod, path, 0o700)
+    ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\29319\.workbuddy\binaries\python\versions\3.13.12\Lib\tempfile.py", line 272, in _dont_follow_symlinks
+    func(path, *args, follow_symlinks=False)
+    ~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+PermissionError: [WinError 5] 拒绝访问。: 'C:\\Users\\29319\\AppData\\Local\\Packages\\sandbox.{5f70c343-4dee-4541-8f7f-19058703103c}\\AC\\Temp\\tmp2uytk89z'
+
+======================================================================
+FAIL: test_delayed_disconnect_does_not_stop_simulation (test_ui_regressions.TestWindowRegressions.test_delayed_disconnect_does_not_stop_simulation)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\29319\Documents\ChatGPT\电压表和示波器\desktop\tests\test_ui_regressions.py", line 66, in test_delayed_disconnect_does_not_stop_simulation
+    self.assertEqual(self.w.mode, "sim")
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^
+AssertionError: 'idle' != 'sim'
+- idle
++ sim
+
+
+======================================================================
+FAIL: test_delayed_serial_frame_cannot_contaminate_simulation (test_ui_regressions.TestWindowRegressions.test_delayed_serial_frame_cannot_contaminate_simulation)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\29319\Documents\ChatGPT\电压表和示波器\desktop\tests\test_ui_regressions.py", line 62, in test_delayed_serial_frame_cannot_contaminate_simulation
+    self.assertIsNone(self.w._display)
+    ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^
+AssertionError: {'seq': 9, 'codes': [0, 0, 0, 0, 0, 0, 0, 0], 'volts': [0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0], 'times': [0.0, 0.0001, 0.0002, 0.0003, 0.0004, 0.0005, 0.0006, 0.0007], 'sample_rate_hz': 10000, 'vref_mv': 3300, 'point_count': 8, 'stats': Stats(count=8, mean=0.0, vmin=0.0, vmax=0.0, vpp=0.0), 'freq': FreqResult(ok=False, hz=0.0, reason='直流或幅度过小')} is not None
+
+======================================================================
+FAIL: test_invalid_sample_metadata_is_rejected_before_drawing (test_ui_regressions.TestWindowRegressions.test_invalid_sample_metadata_is_rejected_before_drawing)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\29319\Documents\ChatGPT\电压表和示波器\desktop\tests\test_ui_regressions.py", line 90, in test_invalid_sample_metadata_is_rejected_before_drawing
+    self.assertIsNone(self.w._display)
+    ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^
+AssertionError: {'seq': 1, 'codes': [1000, 1000, 1000, 1000, 1000, 1000, 1000, 1000, 1000, 1000, 1000, 1000, 1000, 1000, 1000, 1000], 'volts': [0.8058608058608059, 0.8058608058608059, 0.8058608058608059, 0.8058608058608059, 0.8058608058608059, 0.8058608058608059, 0.8058608058608059, 0.8058608058608059, 0.8058608058608059, 0.8058608058608059, 0.8058608058608059, 0.8058608058608059, 0.8058608058608059, 0.8058608058608059, 0.8058608058608059, 0.8058608058608059], 'times': [], 'sample_rate_hz': 0, 'vref_mv': 3300, 'point_count': 16, 'stats': Stats(count=16, mean=0.8058608058608059, vmin=0.8058608058608059, vmax=0.8058608058608059, vpp=0.0), 'freq': FreqResult(ok=False, hz=0.0, reason='数据不足')} is not None
+
+======================================================================
+FAIL: test_real_single_ignores_inflight_frame_before_ack (test_ui_regressions.TestWindowRegressions.test_real_single_ignores_inflight_frame_before_ack)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\29319\Documents\ChatGPT\电压表和示波器\desktop\tests\test_ui_regressions.py", line 73, in test_real_single_ignores_inflight_frame_before_ack
+    self.assertIsNone(self.w._display)
+    ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^
+AssertionError: {'seq': 20, 'codes': [0, 4095, 0, 4095, 0, 4095, 0, 4095, 0, 4095, 0, 4095, 0, 4095, 0, 4095], 'volts': [0.0, 3.3, 0.0, 3.3, 0.0, 3.3, 0.0, 3.3, 0.0, 3.3, 0.0, 3.3, 0.0, 3.3, 0.0, 3.3], 'times': [0.0, 0.0001, 0.0002, 0.0003, 0.0004, 0.0005, 0.0006, 0.0007, 0.0008, 0.0009, 0.001, 0.0011, 0.0012, 0.0013, 0.0014, 0.0015], 'sample_rate_hz': 10000, 'vref_mv': 3300, 'point_count': 16, 'stats': Stats(count=16, mean=1.65, vmin=0.0, vmax=3.3, vpp=3.3), 'freq': FreqResult(ok=False, hz=0.0, reason='每周期采样点过少（周期不足）')} is not None
+
+======================================================================
+FAIL: test_single_waits_for_a_triggered_frame (test_ui_regressions.TestWindowRegressions.test_single_waits_for_a_triggered_frame)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\29319\Documents\ChatGPT\电压表和示波器\desktop\tests\test_ui_regressions.py", line 37, in test_single_waits_for_a_triggered_frame
+    self.assertIsNone(self.w._display, "untriggered DC must not consume single capture")
+    ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: {'seq': 1, 'codes': [1000, 1000, 1000, 1000, 1000, 1000, 1000, 1000, 1000, 1000, 1000, 1000, 1000, 1000, 1000, 1000], 'volts': [0.8058608058608059, 0.8058608058608059, 0.8058608058608059, 0.8058608058608059, 0.8058608058608059, 0.8058608058608059, 0.8058608058608059, 0.8058608058608059, 0.8058608058608059, 0.8058608058608059, 0.8058608058608059, 0.8058608058608059, 0.8058608058608059, 0.8058608058608059, 0.8058608058608059, 0.8058608058608059], 'times': [0.0, 0.0001, 0.0002, 0.0003, 0.0004, 0.0005, 0.0006, 0.0007, 0.0008, 0.0009, 0.001, 0.0011, 0.0012, 0.0013, 0.0014, 0.0015], 'sample_rate_hz': 10000, 'vref_mv': 3300, 'point_count': 16, 'stats': Stats(count=16, mean=0.8058608058608059, vmin=0.8058608058608059, vmax=0.8058608058608059, vpp=0.0), 'freq': FreqResult(ok=False, hz=0.0, reason='直流或幅度过小')} is not None : untriggered DC must not consume single capture
+
+======================================================================
+FAIL: test_switch_timeout_rolls_back_reference_editor (test_ui_regressions.TestWindowRegressions.test_switch_timeout_rolls_back_reference_editor)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\29319\Documents\ChatGPT\电压表和示波器\desktop\tests\test_ui_regressions.py", line 98, in test_switch_timeout_rolls_back_reference_editor
+    self.assertEqual(self.w.vref_spin.value(), 3300)
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: 3200 != 3300
+
+======================================================================
+FAIL: test_unrelated_rate_ack_does_not_cancel_pending_request (test_ui_regressions.TestWindowRegressions.test_unrelated_rate_ack_does_not_cancel_pending_request)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\29319\Documents\ChatGPT\电压表和示波器\desktop\tests\test_ui_regressions.py", line 85, in test_unrelated_rate_ack_does_not_cancel_pending_request
+    self.assertTrue(self.w.rate_switch.is_pending())
+    ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: False is not true
+
+======================================================================
+FAIL: test_waiting_trigger_keeps_curve_stats_and_export_on_same_frame (test_ui_regressions.TestWindowRegressions.test_waiting_trigger_keeps_curve_stats_and_export_on_same_frame)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\29319\Documents\ChatGPT\电压表和示波器\desktop\tests\test_ui_regressions.py", line 47, in test_waiting_trigger_keeps_curve_stats_and_export_on_same_frame
+    self.assertEqual(self.w._display["seq"], 11)
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: 12 != 11
+
+----------------------------------------------------------------------
+Ran 9 tests in 0.384s
+
+FAILED (failures=8, errors=1)

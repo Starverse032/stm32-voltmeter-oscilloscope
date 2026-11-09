@@ -1,0 +1,21 @@
+ARMCC 编译期 CRC 断言问题与修复（主 agent 实测）
+时间: 2026-11-09 15:01:53 +0800
+
+[1] 原始写法编译失败
+命令: armcc --cpu Cortex-M3 --c99 -DSTM32F10X_MD -DUSE_STDPERIPH_DRIVER -I firmware/Start -I firmware/Common -I firmware/User -I firmware/Library -c firmware/Tests/protocol_selftest.c -o ...
+输出: "firmware/Tests/protocol_selftest.c", line 49: Error: #4: out of memory  (#if CRC_V_8 != 0x29B1u)
+退出码: 1
+原因: CRC_*_0..N 宏链把 9~24 个 CRC_STEP（每个嵌套 8 层 CRC_BIT1）串成单个 #if 表达式，ARMCC5 预处理器表达式膨胀溢出。CRC 算法本身没错。
+
+[2] 单层 CRC_STEP 探针
+文件: single_step.c（只含一个 #if CRC_STEP(0xFFFFu, 0x31u) == 0）
+结果: 退出码 0，ARMCC 能求值单层 8 次位迭代。
+
+[3] 修复方案：每步独立 #if，输入 crc 用字面常量（不嵌套宏链）
+文件: 编译期断言_建议.c（209 行，64 个独立 #if）
+命令: 同 [1]，输入改为 编译期断言_建议.c
+结果: 退出码 0，无警告无错误，生成目标文件。
+四组末步: 0x29B1 / 0x8278 / 0x7EA4 / 0xE73A，与 docs/protocol.md 第 7 节完全一致。
+
+结论: 「ARMCC 编译期常量断言 ↔ 文档/Python」的跨实现核对在本机真实成立；
+      固件 agent 需按此方案替换 firmware/Tests/protocol_selftest.c 的断言段，否则 Keil 工程构建会失败。
