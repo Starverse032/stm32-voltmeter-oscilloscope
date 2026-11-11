@@ -1,0 +1,9 @@
+# Windows 批处理必须是 CRLF，否则 cmd 会错位解析。
+*.bat text eol=crlf
+*.py text eol=lf
+*.md text eol=lf
+*.json text eol=lf
+# 固件 HEX 的 SHA-256 按原始字节登记，禁止换行转换。
+*.hex binary
+*.h text
+*.png binary

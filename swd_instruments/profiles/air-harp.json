@@ -1,0 +1,65 @@
+{
+  "schema_version": 1,
+  "profile_id": "air-harp-armcc5-v1",
+  "display_name": "空气竖琴！",
+  "device": {
+    "dev_id": 1040,
+    "flash_size_kb": 64
+  },
+  "firmware": {
+    "flash_start": 134217728,
+    "image_size": 65536,
+    "image_sha256": "f1c774d8d37ec51427fd2a267d76ce22330226b9420ee17eb43fdce27ab895f8",
+    "artifact_file": "air-harp.hex",
+    "artifact_sha256": "53ff2d178976073b3ab1368d7a212bd723afccf7da1eeff78564faa17d8cd8ef"
+  },
+  "clock": {
+    "hse_hz": 8000000,
+    "hse_source": "reviewed-assumption"
+  },
+  "vref_mv": 3300,
+  "resources": {
+    "adc2_free": true,
+    "tim1_ch1_free": false,
+    "pa4_free": true,
+    "pa8_free": false,
+    "tim4_free": false,
+    "pb6_free": false,
+    "pb7_free": false,
+    "pa7_free": true,
+    "adcpre_free": true,
+    "adc_input": "PA4",
+    "original_uses": [
+      "gpio_write_policy: No application GPIO_Write or direct ->ODR assignment. Output writes use GPIO_WriteBit/SetBits/ResetBits, atomic BSRR/BRR; GPIO_Init uses masked CRL/CRH RMW and BSRR/BRR for pull inputs. (Library/stm32f10x_gpio.c:173-256,358-422, Hardware/OLED.c:1-1481, Hardware/OLED.h:1-63, Hardware/OLED_Data.c:1-531, Hardware/OLED_Data.h:1-42, Hardware/Tone.c:1-67, Hardware/Tone.h:1-7, Hardware/Ultrasonic.c:1-117, Hardware/Ultrasonic.h:1-7, System/Delay.c:1-41, System/Delay.h:1-8, User/main.c:1-171, User/stm32f10x_conf.h:1-77, User/stm32f10x_it.c:1-160, User/stm32f10x_it.h:1-54)",
+      "systick: Delay helper writes SysTick LOAD/VAL/CTRL and polls COUNTFLAG, no interrupt. (System/Delay.c:8-40)",
+      "clock_system: SystemInit configures RCC/FLASH prefetch/latency, VTOR; reset startup uses stack/RAM and calls SystemInit. (Start/system_stm32f10x.c:212-274,987-1079, Start/startup_stm32f10x_md.s:129-138)",
+      "interrupts: No peripheral NVIC/EXTI interrupt enables; timers polled if present; SysTick TICKINT=0. (System/Delay.c:12, Hardware/OLED.c:1-1481, Hardware/OLED.h:1-63, Hardware/OLED_Data.c:1-531, Hardware/OLED_Data.h:1-42, Hardware/Tone.c:1-67, Hardware/Tone.h:1-7, Hardware/Ultrasonic.c:1-117, Hardware/Ultrasonic.h:1-7, System/Delay.c:1-41, System/Delay.h:1-8, User/main.c:1-171, User/stm32f10x_conf.h:1-77, User/stm32f10x_it.c:1-160, User/stm32f10x_it.h:1-54)",
+      "afio_remap_swd: No pin remap/JTAG-SWD disable calls; no PA13/PA14 application access. SWD reconfiguration NOT found. Running-led enables AFIO for EXTI routing only. (Hardware/OLED.c:1-1481, Hardware/OLED.h:1-63, Hardware/OLED_Data.c:1-531, Hardware/OLED_Data.h:1-42, Hardware/Tone.c:1-67, Hardware/Tone.h:1-7, Hardware/Ultrasonic.c:1-117, Hardware/Ultrasonic.h:1-7, System/Delay.c:1-41, System/Delay.h:1-8, User/main.c:1-171, User/stm32f10x_conf.h:1-77, User/stm32f10x_it.c:1-160, User/stm32f10x_it.h:1-54)",
+      "dma: No application DMA configuration or enable. (Hardware/OLED.c:1-1481, Hardware/OLED.h:1-63, Hardware/OLED_Data.c:1-531, Hardware/OLED_Data.h:1-42, Hardware/Tone.c:1-67, Hardware/Tone.h:1-7, Hardware/Ultrasonic.c:1-117, Hardware/Ultrasonic.h:1-7, System/Delay.c:1-41, System/Delay.h:1-8, User/main.c:1-171, User/stm32f10x_conf.h:1-77, User/stm32f10x_it.c:1-160, User/stm32f10x_it.h:1-54)",
+      "PA6 AF_PP TIM3_CH1 tone; Hardware/Tone.c:22-29",
+      "PA8 IN_FLOATING TIM1 TI1 echo; Hardware/Ultrasonic.c:22,39-41",
+      "PB12 Out_PP ultrasonic trigger; Hardware/Ultrasonic.c:30-35,93-95",
+      "PB8/PB9 Out_OD 50MHz, software bit-banged OLED I2C; Hardware/OLED.c:100,117,141-149",
+      "adc: No ADC1/ADC2 configuration, conversion, DMA or dual-mode use in application. (Hardware/OLED.c:1-1481, Hardware/OLED.h:1-63, Hardware/OLED_Data.c:1-531, Hardware/OLED_Data.h:1-42, Hardware/Tone.c:1-67, Hardware/Tone.h:1-7, Hardware/Ultrasonic.c:1-117, Hardware/Ultrasonic.h:1-7, System/Delay.c:1-41, System/Delay.h:1-8, User/main.c:1-171, User/stm32f10x_conf.h:1-77, User/stm32f10x_it.c:1-160, User/stm32f10x_it.h:1-54)",
+      "serial: Software OLED I2C only; no USART, hardware I2C or SPI configured/called. (Hardware/OLED.c:100,117,141-149, Hardware/OLED.c:1-1481, Hardware/OLED.h:1-63, Hardware/OLED_Data.c:1-531, Hardware/OLED_Data.h:1-42, Hardware/Tone.c:1-67, Hardware/Tone.h:1-7, Hardware/Ultrasonic.c:1-117, Hardware/Ultrasonic.h:1-7, System/Delay.c:1-41, System/Delay.h:1-8, User/main.c:1-171, User/stm32f10x_conf.h:1-77, User/stm32f10x_it.c:1-160, User/stm32f10x_it.h:1-54)",
+      "TIM1 CH1 direct rising + CH2 indirect falling via TIM_PWMIConfig, TI1FP1 slave-reset, PSC=71 ARR=65535, polled capture; Hardware/Ultrasonic.c:43-67,92-109; Library/stm32f10x_tim.c:654-708",
+      "TIM3 CH1 PWM tone, runtime PSC update and CCR1=0/50; Hardware/Tone.c:31-66"
+    ],
+    "tim3_free": false,
+    "pa6_free": false,
+    "pb10_free": true,
+    "meter_input": null,
+    "continuity_input": "PB10"
+  },
+  "review": {
+    "status": "reviewed",
+    "reviewed_by": "Codex (source review + offline rebuild)",
+    "reviewed_at": "2026-11-10"
+  },
+  "notes": [
+    "新路径尚未在真实硬件上验证。",
+    "初始化结束后再激活共享GPIO端口。",
+    "面包板 OLED 占用 PB6/PB7/PB8/PB9 行（GND/VCC/SCL/SDA），禁止在这些行接入仪器跳线。",
+    "PA6 不耐受 5 V，仅允许 0–3.3 V 逻辑；HC-SR04 Echo 等 5 V 信号禁止直接连接。"
+  ]
+}

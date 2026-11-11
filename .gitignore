@@ -1,8 +1,9 @@
-# Local environments, credentials, and collaboration working files
+# 本地环境、凭据与协作工作文件
 /.venv/
 /work/
 /.agents/
 /.codex/
+/.codex-runs/
 .env
 .env.*
 __pycache__/
@@ -11,18 +12,18 @@ __pycache__/
 .DS_Store
 Thumbs.db
 
-# Keil local UI/debug settings and generated intermediate files
-*.uvoptx
-*.uvguix.*
-/firmware/DebugConfig/
-/firmware/Listings/
-/firmware/Objects/*
-!/firmware/Objects/Project.hex
-!/firmware/Objects/build.log
+# 本地验收记录与实测数据（含探头序列号和本机路径，不公开）
+/outputs/
+/diagnostics-backup/
 
-# Local delivery bundles and development-only handoff material
-/outputs/*.zip
-/outputs/*.diff
-/outputs/给WorkBuddy的制作任务.md
-/outputs/自动验收进度.md
-/desktop/tests/out.csv
+# 旧版串口仪器的本地构建残留（旧版已从仓库移除，见提交历史）
+/firmware/
+/desktop/
+/docs/*.md
+
+# 与本项目无关的本地排障文件
+/*.ps1
+/inspect_dump.py
+/rtss-profile.py
+/wetype-official.html
+/Edge弹窗排查记录.md

@@ -1,0 +1,2 @@
+# 兼容旧安装脚本；全部依赖已合并到 requirements.txt。
+pyocd==0.46.1

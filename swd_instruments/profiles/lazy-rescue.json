@@ -1,0 +1,64 @@
+{
+  "schema_version": 1,
+  "profile_id": "lazy-rescue-armcc5-v1",
+  "display_name": "懒人救星！",
+  "device": {
+    "dev_id": 1040,
+    "flash_size_kb": 64
+  },
+  "firmware": {
+    "flash_start": 134217728,
+    "image_size": 65536,
+    "image_sha256": "5e9df00691490c37777bc415ef6b05549589be4cc9c736f548c0649206575229",
+    "artifact_file": "lazy-rescue.hex",
+    "artifact_sha256": "c7d62f04da2d64b5a3a2bbafb876d47c1d2d6fbac5e86fdcc561b26ce7ed95e8"
+  },
+  "clock": {
+    "hse_hz": 8000000,
+    "hse_source": "reviewed-assumption"
+  },
+  "vref_mv": 3300,
+  "resources": {
+    "adc2_free": true,
+    "tim1_ch1_free": true,
+    "pa4_free": true,
+    "pa8_free": true,
+    "tim4_free": false,
+    "pb6_free": false,
+    "pb7_free": false,
+    "pa7_free": true,
+    "adcpre_free": false,
+    "adc_input": "PA4",
+    "original_uses": [
+      "gpio_write_policy: No application GPIO_Write or direct ->ODR assignment. Output writes use GPIO_WriteBit/SetBits/ResetBits, atomic BSRR/BRR; GPIO_Init uses masked CRL/CRH RMW and BSRR/BRR for pull inputs. (Library/stm32f10x_gpio.c:173-256,358-422, Hardware/AD.c:1-61, Hardware/AD.h:1-8, Hardware/NightLight.c:1-136, Hardware/NightLight.h:1-13, Hardware/OLED.c:1-321, Hardware/OLED.h:1-13, Hardware/OLED_Font.h:1-293, Hardware/PWM.c:1-45, Hardware/PWM.h:1-7, System/Delay.c:1-41, System/Delay.h:1-8, System/Timer.c:1-27, System/Timer.h:1-7, User/main.c:1-47, User/stm32f10x_conf.h:1-77, User/stm32f10x_it.c:1-160, User/stm32f10x_it.h:1-54)",
+      "systick: Delay helper writes SysTick LOAD/VAL/CTRL and polls COUNTFLAG, no interrupt. (System/Delay.c:8-40)",
+      "clock_system: SystemInit configures RCC/FLASH prefetch/latency, VTOR; reset startup uses stack/RAM and calls SystemInit. (Start/system_stm32f10x.c:212-274,987-1079, Start/startup_stm32f10x_md.s:129-138)",
+      "interrupts: No peripheral NVIC/EXTI interrupt enables; timers polled if present; SysTick TICKINT=0. (System/Delay.c:12, Hardware/AD.c:1-61, Hardware/AD.h:1-8, Hardware/NightLight.c:1-136, Hardware/NightLight.h:1-13, Hardware/OLED.c:1-321, Hardware/OLED.h:1-13, Hardware/OLED_Font.h:1-293, Hardware/PWM.c:1-45, Hardware/PWM.h:1-7, System/Delay.c:1-41, System/Delay.h:1-8, System/Timer.c:1-27, System/Timer.h:1-7, User/main.c:1-47, User/stm32f10x_conf.h:1-77, User/stm32f10x_it.c:1-160, User/stm32f10x_it.h:1-54)",
+      "afio_remap_swd: No pin remap/JTAG-SWD disable calls; no PA13/PA14 application access. SWD reconfiguration NOT found. Running-led enables AFIO for EXTI routing only. (Hardware/AD.c:1-61, Hardware/AD.h:1-8, Hardware/NightLight.c:1-136, Hardware/NightLight.h:1-13, Hardware/OLED.c:1-321, Hardware/OLED.h:1-13, Hardware/OLED_Font.h:1-293, Hardware/PWM.c:1-45, Hardware/PWM.h:1-7, System/Delay.c:1-41, System/Delay.h:1-8, System/Timer.c:1-27, System/Timer.h:1-7, User/main.c:1-47, User/stm32f10x_conf.h:1-77, User/stm32f10x_it.c:1-160, User/stm32f10x_it.h:1-54)",
+      "dma: No application DMA configuration or enable. (Hardware/AD.c:1-61, Hardware/AD.h:1-8, Hardware/NightLight.c:1-136, Hardware/NightLight.h:1-13, Hardware/OLED.c:1-321, Hardware/OLED.h:1-13, Hardware/OLED_Font.h:1-293, Hardware/PWM.c:1-45, Hardware/PWM.h:1-7, System/Delay.c:1-41, System/Delay.h:1-8, System/Timer.c:1-27, System/Timer.h:1-7, User/main.c:1-47, User/stm32f10x_conf.h:1-77, User/stm32f10x_it.c:1-160, User/stm32f10x_it.h:1-54)",
+      "PA0 AF_PP TIM2_CH1; Hardware/PWM.c:14-17",
+      "PA1 AIN ADC1_CH1; Hardware/AD.c:17-23",
+      "PB8/PB9 Out_OD 50MHz, software bit-banged OLED I2C; Hardware/OLED.c:5-19",
+      "adc: ADC1 channel 1, independent single software-triggered conversion, no DMA/dual mode; Hardware/AD.c:11-48 (Hardware/AD.c:11-48)",
+      "serial: Software OLED I2C only; no USART, hardware I2C or SPI configured/called. (Hardware/OLED.c:5-19, Hardware/AD.c:1-61, Hardware/AD.h:1-8, Hardware/NightLight.c:1-136, Hardware/NightLight.h:1-13, Hardware/OLED.c:1-321, Hardware/OLED.h:1-13, Hardware/OLED_Font.h:1-293, Hardware/PWM.c:1-45, Hardware/PWM.h:1-7, System/Delay.c:1-41, System/Delay.h:1-8, System/Timer.c:1-27, System/Timer.h:1-7, User/main.c:1-47, User/stm32f10x_conf.h:1-77, User/stm32f10x_it.c:1-160, User/stm32f10x_it.h:1-54)",
+      "TIM2 CH1 PWM1 PSC=71 ARR=999, CCR1 runtime; Hardware/PWM.c:19-44",
+      "TIM3 counter PSC=7199 ARR=65535, polled; System/Timer.c:12-26"
+    ],
+    "tim3_free": false,
+    "pa6_free": true,
+    "pb10_free": true,
+    "meter_input": null,
+    "continuity_input": "PB10"
+  },
+  "review": {
+    "status": "reviewed",
+    "reviewed_by": "Codex (source review + offline rebuild)",
+    "reviewed_at": "2026-11-10"
+  },
+  "notes": [
+    "新路径尚未在真实硬件上验证。",
+    "初始化结束后再激活共享GPIO端口。",
+    "面包板 OLED 占用 PB6/PB7/PB8/PB9 行（GND/VCC/SCL/SDA），禁止在这些行接入仪器跳线。",
+    "PA6 不耐受 5 V，仅允许 0–3.3 V 逻辑；HC-SR04 Echo 等 5 V 信号禁止直接连接。"
+  ]
+}

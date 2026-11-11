@@ -1,8 +1,0 @@
-PySide6 / Qt 平台探测（主 agent 执行）
-时间: 2026-11-09 14:55:50 +0800
-解释器: .venv/Scripts/python.exe (Python 3.13.14)
-操作: 创建 QApplication + QLabel 窗口，show() 后 QTimer 400ms 退出，QWidget.grab() 保存 PNG
-结果: app.exec() 退出码 0；platform plugin = windows（真实桌面，非 offscreen）；主屏 2560x1440；grab().save() = True
-截图: outputs/keil_probe/qt_probe.png
-结论: 本机可真实启动 Qt 窗口并可截图，GUI 交互验证无需退回 offscreen。
-注意: 这只是 Qt 平台能力探测，不等于仪器窗口的交互验证通过；以后者日志与截图为准。

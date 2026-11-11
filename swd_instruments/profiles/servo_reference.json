@@ -1,0 +1,55 @@
+{
+  "schema_version": 1,
+  "profile_id": "servo-reference-armcc5-v1",
+  "device": {
+    "dev_id": 1040,
+    "flash_size_kb": 64
+  },
+  "firmware": {
+    "flash_start": 134217728,
+    "image_size": 65536,
+    "image_sha256": "2f5f8ad3e43078cc53b1e356c37324bdf7cc59e03416529e13896a38a64bc988",
+    "artifact_file": "reference_original.hex",
+    "artifact_sha256": "a674b4cf911e8e90e61d4f654936373d826895a36b40459ec5342106eba985c1"
+  },
+  "clock": {
+    "hse_hz": 8000000,
+    "hse_source": "reviewed-assumption"
+  },
+  "vref_mv": 3300,
+  "resources": {
+    "adc2_free": true,
+    "tim1_ch1_free": true,
+    "pa4_free": true,
+    "pa8_free": true,
+    "original_uses": [
+      "ADC1/PA0",
+      "TIM2_CH2/PA1",
+      "OLED PB8/PB9"
+    ],
+    "tim4_free": false,
+    "pb6_free": false,
+    "pb7_free": false,
+    "pa7_free": true,
+    "adc_input": "PA4",
+    "adcpre_free": false,
+    "tim3_free": true,
+    "pa6_free": true,
+    "pb10_free": true,
+    "meter_input": "PA6",
+    "continuity_input": "PB10"
+  },
+  "review": {
+    "status": "reviewed",
+    "reviewed_by": "Codex source review and copied-project build",
+    "reviewed_at": "2026-11-10"
+  },
+  "notes": [
+    "仅匹配独立重建的完整64KiB原固件，未知/不匹配固件拒绝写入。",
+    "当前没有硬件验收；8MHz晶振与3300mV为配置假设。",
+    "不会下载或擦除以强行匹配本镜像。",
+    "面包板 OLED 占用 PB6/PB7/PB8/PB9 行（GND/VCC/SCL/SDA），禁止在这些行接入仪器跳线。",
+    "PA6 不耐受 5 V，仅允许 0–3.3 V 逻辑；HC-SR04 Echo 等 5 V 信号禁止直接连接。"
+  ],
+  "display_name": "来个舵机摇一摇！"
+}

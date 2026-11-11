@@ -1,7 +1,0 @@
-ARMCC 许可/编译探测（主 agent 执行）
-时间: 2026-11-09 14:53:32 +0800
-命令: C:/Keil_v5/ARM/ARMCC/bin/armcc.exe --cpu Cortex-M3 --c99 -c probe.c -o probe.o
-退出码: 0
-输出: 无警告、无错误；生成 probe.o（1204 字节）
-结论: ARMCC 5.06 编译器在本机许可可用，可实际编译 Cortex-M3 C 源码。
-注意: 这不等同于 Keil UV4 工程构建成功；工程构建还需设备包/启动文件/链接配置正确，以 firmware/Objects/build.log 为准。
